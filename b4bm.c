@@ -31,6 +31,7 @@
 
 #define DRV_VERSION  "1.0.1"
 
+MODULE_LICENSE("GPL");
 
 int board_id=0; //board identify flag
 

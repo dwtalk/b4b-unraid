@@ -67,6 +67,8 @@
 #include "sci.h"
 #include "hwm.h"
 
+MODULE_LICENSE("GPL");
+
 #define DRV_NAME            "sci"
 #define SCI_DRV_VERSION     "0.6"
 
@@ -307,7 +309,7 @@ ssize_t wix_base_read(struct file * file, char * buf, size_t count, loff_t *ppos
 
     if (!count)
         return 0;
-    if (!access_ok(VERIFY_WRITE, buf, count))
+    if (!access_ok(buf, count))
         return -EFAULT;
 
     left = count;
@@ -339,7 +341,7 @@ ssize_t wix_base_write(struct file * file, const char * buf, size_t count, loff_
 
     if (!count)
         return 0;
-    if (!access_ok(VERIFY_READ, buf, count))
+    if (!access_ok(buf, count))
         return -EFAULT;
     left = count;
     if (left < sizeof(int)) {
@@ -374,7 +376,7 @@ int wix_base_ioctl( struct inode *inode, struct file *file, unsigned int cmd, un
     int             event = -1;
     wixEventList    *next;
 
-    if (!access_ok(VERIFY_WRITE, arg, sizeof(int)))
+    if (!access_ok(arg, sizeof(int)))
         return -EFAULT;
 
     switch (cmd)
@@ -434,7 +436,7 @@ int wix_base_ioctl( struct inode *inode, struct file *file, unsigned int cmd, un
 ssize_t wix_btn_read(struct file * file, char * buf, size_t count, loff_t *ppos) {
     if (!count)
         return 0;
-    if (!access_ok(VERIFY_WRITE, buf, count))
+    if (!access_ok(buf, count))
         return -EFAULT;
     return wix_base_read(file, buf, count, ppos, &wixDevBtn);
 }
@@ -442,7 +444,7 @@ ssize_t wix_btn_read(struct file * file, char * buf, size_t count, loff_t *ppos)
 ssize_t wix_btn_write(struct file * file, const char * buf, size_t count, loff_t *ppos) {
     if (!count)
         return 0;
-    if (!access_ok(VERIFY_READ, buf, count))
+    if (!access_ok(buf, count))
         return -EFAULT;
     return wix_base_write(file, buf, count, ppos, &wixDevBtn);
 }
@@ -452,7 +454,7 @@ long wix_btn_ioctl(struct file *file, unsigned int cmd, unsigned long arg) {
 #else
 int wix_btn_ioctl(struct inode *inode, struct file *file, unsigned int cmd, unsigned long arg) {
 #endif
-    if (!access_ok(VERIFY_WRITE, arg, sizeof(int)))
+    if (!access_ok(arg, sizeof(int)))
         return -EFAULT;
     switch (cmd) {
         case READ_BUTTON_NONBLOCKING:
@@ -471,7 +473,7 @@ int wix_btn_ioctl(struct inode *inode, struct file *file, unsigned int cmd, unsi
 ssize_t wix_hwe_read(struct file * file, char * buf, size_t count, loff_t *ppos) {
     if (!count)
         return 0;
-    if (!access_ok(VERIFY_WRITE, buf, count))
+    if (!access_ok(buf, count))
         return -EFAULT;
     return wix_base_read(file, buf, count, ppos, &wixDevHwe);
 }
@@ -479,7 +481,7 @@ ssize_t wix_hwe_read(struct file * file, char * buf, size_t count, loff_t *ppos)
 ssize_t wix_hwe_write(struct file * file, const char * buf, size_t count, loff_t *ppos) {
     if (!count)
         return 0;
-    if (!access_ok(VERIFY_READ, buf, count))
+    if (!access_ok(buf, count))
         return -EFAULT;
     return wix_base_write(file, buf, count, ppos, &wixDevHwe);
 }
@@ -489,7 +491,7 @@ long wix_hwe_ioctl(struct file *file, unsigned int cmd, unsigned long arg) {
 #else
 int wix_hwe_ioctl(struct inode *inode, struct file *file, unsigned int cmd, unsigned long arg) {
 #endif
-    if (!access_ok(VERIFY_WRITE, arg, sizeof(int)))
+    if (!access_ok(arg, sizeof(int)))
         return -EFAULT;
     switch (cmd) {
         case READ_HWE_NONBLOCKING:

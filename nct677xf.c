@@ -37,6 +37,8 @@
 #include "hwm.h"
 #include "nct677xf.h"
 
+MODULE_LICENSE("GPL");
+
 extern int board_id;
 extern struct semaphore global_lock;
 

@@ -25,11 +25,9 @@ endif
 
 EXTRA_CFLAGS += $(DEBFLAGS)
 
-obj-m:=$(MODULE).o
-b4b-objs:=  b4bm.o lcm.o smbus.o gpiopch.o gpiosio.o hwm.o nct677xf.o led.o wdt.o sci.o
 
 default:
-	$(MAKE) -C $(KDIR) EXTRA_CFLAGS="$(EXTRA_CFLAGS)" SUBDIRS=$(PWD) modules
+	$(MAKE) -C $(KDIR) EXTRA_CFLAGS="$(EXTRA_CFLAGS)" M=$(PWD) 
 
 clean:
 	$(RM) *.mod.c *.o *.ko .*.cmd *~ Modules.* modules.* .cache.mk

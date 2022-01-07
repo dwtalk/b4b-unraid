@@ -37,6 +37,8 @@
 #include "gpio.h"
 #include "gpiopch.h"
 
+MODULE_LICENSE("GPL");
+
 #define	GPIO_TYPE_GPI           0x01
 #define	GPIO_TYPE_GPO           0x02
 #define	GPIO_TYPE_GPO_BLINKING  0x03

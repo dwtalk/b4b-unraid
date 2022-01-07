@@ -36,6 +36,8 @@
 #include "b4b.h"
 #include "smbus.h"
 
+MODULE_LICENSE("GPL");
+
 #define DRV_NAME            "smbus"
 #define SMB_DRV_VERSION     "1.00"
 

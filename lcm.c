@@ -32,6 +32,8 @@
 #include "b4b.h"
 #include "lcm.h"
 
+MODULE_LICENSE("GPL");
+
 /* pin definition */
 #define LCM_BUS_A0          0x0102  //GP12 for A0
 #define LCM_BUS_CS          0x0100  //GP10 for CS

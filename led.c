@@ -39,6 +39,8 @@
 #include "gpiopch.h"
 #include "gpiosio.h"
 
+MODULE_LICENSE("GPL");
+
 int led_probe (struct led_host *ledhost, struct led_device leddev[]) {
     int    loop;
     struct led_device      *pleddev;

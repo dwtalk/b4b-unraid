@@ -38,6 +38,7 @@
 #include "nct677xf.h"
 #include "wdt.h"
 
+MODULE_LICENSE("GPL");
 
 extern struct semaphore global_lock;
 
