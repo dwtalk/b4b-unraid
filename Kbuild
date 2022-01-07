@@ -1,0 +1,11 @@
+obj-m := b4b.o
+b4b-y := b4bm.o lcm.o smbus.o gpiopch.o gpiosio.o hwm.o nct677xf.o led.o wdt.o sci.o
+b4bm-y := b4bm.c
+lcm-y := lcm.c
+smbus-y := smbus.c
+gpiopch-y := gpiopch.c
+hwm-y := hwm.c
+nct677xf-y := nct677xf.c
+led-y := led.c
+wdt-y := wdt.c
+sci-y := sci.c
