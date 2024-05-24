@@ -1,8 +1,8 @@
-http://mirror.centos.org/altarch/7/experimental/x86_64/Packages/
-https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/
-https://mirrors.slackware.com/slackware/slackware64-current/slackware64/a/
+https://mirrors.edge.kernel.org/pub/linux/kernel/v6.x/
+https://mirrors.slackware.com/slackware/slackware64-current/slackware64/
+https://github.com/dwtalk/linux-unraid-6.12.10
 
-Getting Kernel 5.10.28 compat drivers for Lenovo EMC PX4-400D for UNRAID 6.9.2
+Getting Kernel 6.1.79 compat drivers for Lenovo EMC PX4-400D for UNRAID 6.12.10
 
 This allows for b4b.ko to be insmod as a kernel module which provides LCD and input / LED control.
 Also enables LCD images to work in the misc folder.
@@ -11,47 +11,30 @@ Also enables LCD images to work in the misc folder.
 
 ## Prerequisite
 
-Unraid running on a USB stick in the PX4
-External Hard Drive plugged into USB /dev/sdc1
+Unraid running on a device (either physical or virtual machine). Ensure that you have some disk that is fast to place the linux source.
 
-1. Get the linux kernel source downloaded and extracted
-/linux-5.10.28-Unraid (add the -Unraid)
+1. Get the linux kernel source downloaded and extracted to /usr/src
+Use the version here: https://github.com/dwtalk/linux-unraid-6.12.10
 
-2. Ge the appropriate devel headers that match the kernel version/
-Might not find exact, but slackware or centos will have something.
-I used centOS RPM and extracted with "bsdtar"
+2. Run prelim.sh to install compilation requirements
 
 ## Building and Testing
 
-1. mkdir /tmp/d
+1. Goto /usr/src/linux-6.1.79-Unraid --DO NOT edit the makefile to add "-Unraid" to EXTRAVERSION if using a version already prepared for unraid
 
-2. mount /dev/sdc1 /tmp/d
-
-3. Run scripts to download and install the latest build packages for kernel module compilation
-These may need updated to match slackware-current
-
-1.sh
-2.sh
-
-4. Goto /usr/src/linux-5.10.28-Unraid and edit the makefile to add "-Unraid" to EXTRAVERSION
-
-5. Extract the devel kernel headers and copy to /usr/include
-
-6. Copy patches over from /usr/src/..Unraid2
+2. If patches not already applied, copy patches over from /usr/src/..Unraid2
 Ru with "git apply *.patch"
-Copy over System.map? Modules.symvers?
+Copy over System.map? .oldconfig or .config or run make olddefconfig
 
-7. Run "make menuconfig" from the linux src folder
-Disable trace and kernel debug and wireless drivers
-
-8. Make what is needed
+3. Make what is needed
 
 make modules_prepare
 make modules
 make headers
 make headers_install
+make
 
-9. Go to b4b-unraid-master folder (from git here)
+4. Go to b4b-unraid-master folder (from git here)
 
 make clean
 make
@@ -65,4 +48,4 @@ modinfo b4b.ko - ensure that the version matches `uname -r` with "-Unraid" at th
 
 insmod b4b.ko - see if it load, use dmesg to see why if not
 
-possible causes: version magic mismatch with kernel version, unknown symbols - chekc the System.map and /proc/ksyscall to see if calls allowed
+possible causes: version magic mismatch with kernel version, unknown symbols - check the System.map and /proc/ksyscall to see if calls allowed
