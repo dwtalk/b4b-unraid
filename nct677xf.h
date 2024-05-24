@@ -55,5 +55,9 @@ int  ncthwmh_probe(struct hwm_host *hwmhost, struct hwm_device hwmdev[]);
 int  ncthwmh_release(struct hwm_host *hwmhost);
 int  ncthwmd_read(struct hwm_device *phwmdev);
 int  ncthwmd_write(struct hwm_device *phwmdev, int value);
+int ncthwmd_fan_read (struct hwm_device *phwmdev);
+int ncthwmd_volt_read (struct hwm_device *phwmdev);
+int ncthwmd_therm_read (struct hwm_device *phwmdev);
+int ncthwmd_other_read (struct hwm_device *phwmdev);
 
 #endif

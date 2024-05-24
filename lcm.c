@@ -32,7 +32,7 @@
 #include "b4b.h"
 #include "lcm.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 /* pin definition */
 #define LCM_BUS_A0          0x0102  //GP12 for A0
@@ -603,4 +603,4 @@ void wixlcm_exit(void) {
 /*
  * Get rid of taint message by declaring code as GPL.
  */
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");

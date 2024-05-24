@@ -38,7 +38,7 @@
 #include "nct677xf.h"
 #include "wdt.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 extern struct semaphore global_lock;
 
@@ -188,4 +188,4 @@ void wdt_exit(void) {
 /*
  * Get rid of taint message by declaring code as GPL.
  */
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");

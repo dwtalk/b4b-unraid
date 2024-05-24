@@ -36,7 +36,7 @@
 #include "b4b.h"
 #include "smbus.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 #define DRV_NAME            "smbus"
 #define SMB_DRV_VERSION     "1.00"
@@ -731,4 +731,4 @@ void smbus_exit(void) {
 /*
  * Get rid of taint message by declaring code as GPL.
  */
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");

@@ -29,9 +29,9 @@
 //#include "wkthread.h"
 #include "lcm.h"
 
-#define DRV_VERSION  "1.0.1"
+#define DRV_VERSION  "1.0.2"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 int board_id=0; //board identify flag
 

@@ -39,7 +39,7 @@
 #include "gpiopch.h"
 #include "gpiosio.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 int led_probe (struct led_host *ledhost, struct led_device leddev[]) {
     int    loop;
@@ -168,4 +168,4 @@ void led_exit(void) {
 /*
  * Get rid of taint message by declaring code as GPL.
  */
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");

@@ -37,7 +37,7 @@
 #include "hwm.h"
 #include "nct677xf.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 extern int board_id;
 extern struct semaphore global_lock;
@@ -453,4 +453,4 @@ void nct677xf_exit(void) {
 /*
  * Get rid of taint message by declaring code as GPL.
  */
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");

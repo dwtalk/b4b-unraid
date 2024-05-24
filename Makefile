@@ -8,14 +8,15 @@ MODULE = b4b
 
 EXTRA_CFLAGS =
 KDIR:=/lib/modules/$(shell uname -r)/build
+#KDIR:/usr/src/linux-$(shell uname -r)
 
-EXTRA_CFLAGS += -isystem -I$(KDIR)/drivers/usb/serial -Wall -Werror
+EXTRA_CFLAGS += -isystem -I$(KDIR)/drivers/usb/serial -Wall -Werror 
 #CFLAGS +=  -g
 EXTRA_CFLAGS += -g
 EXTRA_CFLAGS += -DGSPCA_DEBUG
 
 # Comment/uncomment the following line to disable/enable debugging
-DEBUG = y
+DEBUG = n
 # Add your debugging flag (or not) to CFLAGS
 ifeq ($(DEBUG),y)
   DEBFLAGS = -O -g -DSCULL_DEBUG # "-O" is needed to expand inlines

@@ -38,7 +38,7 @@
 #include "gpio.h"
 #include "gpiosio.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 extern struct semaphore global_lock;
 extern int    board_id;

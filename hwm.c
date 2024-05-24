@@ -38,7 +38,7 @@
 #include "nct677xf.h"
 #include "wdt.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 int hwm_probe (struct hwm_host *hwmhost, struct hwm_device hwmdev[]) {
 	int	loop;

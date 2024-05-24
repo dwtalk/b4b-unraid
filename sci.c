@@ -35,7 +35,7 @@
 #include <linux/vmalloc.h>
 #include <linux/mman.h>
 #include <linux/random.h>
-#include <linux/raw.h>
+//#include <linux/raw.h>
 #include <linux/tty.h>
 #include <linux/capability.h>
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,35)
@@ -67,7 +67,7 @@
 #include "sci.h"
 #include "hwm.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 #define DRV_NAME            "sci"
 #define SCI_DRV_VERSION     "0.6"
@@ -376,7 +376,7 @@ int wix_base_ioctl( struct inode *inode, struct file *file, unsigned int cmd, un
     int             event = -1;
     wixEventList    *next;
 
-    if (!access_ok(arg, sizeof(int)))
+    if (!access_ok((void __user *)arg, sizeof(int)))
         return -EFAULT;
 
     switch (cmd)
@@ -454,7 +454,7 @@ long wix_btn_ioctl(struct file *file, unsigned int cmd, unsigned long arg) {
 #else
 int wix_btn_ioctl(struct inode *inode, struct file *file, unsigned int cmd, unsigned long arg) {
 #endif
-    if (!access_ok(arg, sizeof(int)))
+    if (!access_ok((void __user *)arg, sizeof(int)))
         return -EFAULT;
     switch (cmd) {
         case READ_BUTTON_NONBLOCKING:
@@ -491,7 +491,7 @@ long wix_hwe_ioctl(struct file *file, unsigned int cmd, unsigned long arg) {
 #else
 int wix_hwe_ioctl(struct inode *inode, struct file *file, unsigned int cmd, unsigned long arg) {
 #endif
-    if (!access_ok(arg, sizeof(int)))
+    if (!access_ok((void __user *)arg, sizeof(int)))
         return -EFAULT;
     switch (cmd) {
         case READ_HWE_NONBLOCKING:

@@ -37,7 +37,7 @@
 #include "gpio.h"
 #include "gpiopch.h"
 
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
 
 #define	GPIO_TYPE_GPI           0x01
 #define	GPIO_TYPE_GPO           0x02
@@ -314,4 +314,4 @@ void pchgpio_exit(void) {
 /*
  * Get rid of taint message by declaring code as GPL.
  */
-MODULE_LICENSE("GPL");
+//MODULE_LICENSE("GPL");
